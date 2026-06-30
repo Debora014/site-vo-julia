@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Clock, MessageCircle, Menu, X, Heart } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/logo-vo-julia.png";
-import hero from "@/assets/images paes.jpg";
+import hero from "@/assets/hero-paes.jpg";
 import imgPaesAsset from "@/assets/produto-paes.jpg.asset.json";
 import imgBolosAsset from "@/assets/produto-bolos.jpg.asset.json";
 import imgDocesAsset from "@/assets/produto-doces.jpg.asset.json";
