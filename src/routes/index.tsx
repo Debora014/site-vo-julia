@@ -1,11 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Clock, MessageCircle, Menu, X, Heart } from "lucide-react";
 import { useState } from "react";
-
-// Imagens
-import logo from "@/assets/logo-vo-julia.png";
-import hero from "@/assets/hero-paes.jpg";
-
+import logo from "../assets/logo-vo-julia.png";
+import hero from "../assets/hero-paes.jpg";
 import imgPaes from "@/assets/images-paes.jpg";
 import imgBolos from "@/assets/images-bolos.jpg";
 import imgDoces from "@/assets/images-doces.jpg";
@@ -17,9 +14,7 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP = "554191562729";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
-  "Olá Vó Julia! Gostaria de fazer um pedido."
-)}`;
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá Vó Julia! Gostaria de fazer um pedido.")}`;
 
 const produtos = [
   {
@@ -47,43 +42,54 @@ const produtos = [
     img: imgMercearia,
     items: ["Arroz e Feijão", "Café e Açúcar", "Conservas", "Itens do dia a dia"],
   },
-]
+];
 
 function Nav() {
   const [open, setOpen] = useState(false);
+
   const links = [
     { href: "#inicio", label: "Início" },
     { href: "#produtos", label: "Produtos" },
     { href: "#sobre", label: "Sobre Nós" },
     { href: "#contato", label: "Contato" },
   ];
+
   return (
     <header className="sticky top-0 z-50 bg-creme/90 backdrop-blur border-b border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        {/* Logo */}
         <a href="#inicio" className="flex items-center gap-2">
           <img src={logo} alt="Vó Julia" className="h-10 w-10 rounded-full object-cover" />
           <span className="font-script text-2xl text-brown leading-none">Vó Julia</span>
         </a>
+
+        {/* Nav desktop */}
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="text-sm font-medium text-brown/80 hover:text-vermelho transition-colors">
               {l.label}
             </a>
           ))}
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-vermelho hover:bg-vermelho/90 text-white text-sm font-medium px-4 py-2 rounded-full shadow-sm transition-colors"
-          >
-            <MessageCircle className="h-4 w-4" />
-            Peça pelo WhatsApp
-          </a>
         </nav>
+
+        {/* Botão WhatsApp */}
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-vermelho hover:bg-vermelho/90 text-white text-sm font-medium px-4 py-2 rounded-full shadow-sm transition-colors"
+        >
+          <MessageCircle className="h-4 w-4" />
+          Peça pelo WhatsApp
+        </a>
+
+        {/* Botão menu mobile */}
         <button className="md:hidden text-brown" onClick={() => setOpen(!open)} aria-label="Abrir menu">
           {open ? <X /> : <Menu />}
         </button>
       </div>
+
+      {/* Menu mobile */}
       {open && (
         <div className="md:hidden border-t border-border bg-creme">
           <div className="px-4 py-3 flex flex-col gap-3">
@@ -92,14 +98,6 @@ function Nav() {
                 {l.label}
               </a>
             ))}
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-vermelho text-white font-medium px-4 py-2 rounded-full"
-            >
-              <MessageCircle className="h-4 w-4" /> Peça pelo WhatsApp
-            </a>
           </div>
         </div>
       )}
@@ -117,12 +115,8 @@ function Hero() {
           <span className="inline-flex items-center gap-2 bg-creme/15 backdrop-blur px-3 py-1 rounded-full text-xs uppercase tracking-wider border border-creme/30">
             Panificadora & Mercearia
           </span>
-          <h1 className="mt-4 font-script text-5xl sm:text-7xl md:text-8xl leading-none drop-shadow-md">
-            Vó Julia
-          </h1>
-          <p className="mt-4 max-w-xl text-lg sm:text-2xl text-creme/95">
-            "Feito com carinho, como na casa da vó."
-          </p>
+          <h1 className="mt-4 font-script text-5xl sm:text-7xl md:text-8xl leading-none drop-shadow-md">Vó Julia</h1>
+          <p className="mt-4 max-w-xl text-lg sm:text-2xl text-creme/95">"Feito com carinho, como na casa da vó."</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={WHATSAPP_URL}
@@ -132,10 +126,7 @@ function Hero() {
             >
               <MessageCircle className="h-5 w-5" /> Peça pelo WhatsApp
             </a>
-            <a
-              href="#produtos"
-              className="inline-flex items-center gap-2 bg-creme text-brown font-medium px-6 py-3 rounded-full hover:bg-bege transition-colors"
-            >
+            <a href="#produtos" className="inline-flex items-center gap-2 bg-creme text-brown font-medium px-6 py-3 rounded-full hover:bg-bege transition-colors">
               Ver Produtos
             </a>
           </div>
@@ -156,15 +147,12 @@ function Sobre() {
           <span className="text-vermelho font-medium uppercase tracking-wider text-sm">Sobre Nós</span>
           <h2 className="font-script text-5xl text-brown mt-2">Nossa História</h2>
           <p className="mt-6 text-foreground/80 leading-relaxed">
-            A <strong>Panificadora e Mercearia Vó Julia</strong> nasceu do amor pelas receitas
-            que atravessam gerações. Tudo começou na cozinha da nossa querida Vó Julia, onde
-            o cheirinho de pão fresquinho, bolo no forno e café passado na hora reunia a
-            família todos os dias.
+            A <strong>Panificadora e Mercearia Vó Julia</strong> nasceu do amor pelas receitas que atravessam gerações. Tudo começou na cozinha da nossa querida Vó Julia,
+            onde o cheirinho de pão fresquinho, bolo no forno e café passado na hora reunia a família todos os dias.
           </p>
           <p className="mt-4 text-foreground/80 leading-relaxed">
-            Hoje, levamos esse mesmo carinho para o nosso bairro. Cada pão, cada doce e cada
-            produto da nossa mercearia é escolhido com cuidado, para que você sinta o gostinho
-            de casa em cada visita.
+            Hoje, levamos esse mesmo carinho para o nosso bairro. Cada pão, cada doce e cada produto da nossa mercearia é escolhido com cuidado, para que você sinta o
+            gostinho de casa em cada visita.
           </p>
           <p className="mt-6 inline-flex items-center gap-2 text-vermelho font-medium">
             <Heart className="h-4 w-4 fill-vermelho" /> Feito com carinho, como na casa da vó.
@@ -182,10 +170,7 @@ function Produtos() {
         <div className="text-center max-w-2xl mx-auto">
           <span className="text-vermelho font-medium uppercase tracking-wider text-sm">Nossos Produtos</span>
           <h2 className="font-script text-5xl text-brown mt-2">Direto do Forno</h2>
-          <p className="mt-4 text-foreground/75">
-            Variedade fresquinha todos os dias — pães, bolos, doces, salgados e os itens
-            essenciais da sua mercearia.
-          </p>
+          <p className="mt-4 text-foreground/75">Variedade fresquinha todos os dias — pães, bolos, doces, salgados e os itens essenciais da sua mercearia.</p>
         </div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {produtos.map((p) => (
@@ -225,9 +210,7 @@ function Contato() {
         <div>
           <span className="text-vermelho font-medium uppercase tracking-wider text-sm">Contato</span>
           <h2 className="font-script text-5xl text-brown mt-2">Venha nos Visitar</h2>
-          <p className="mt-4 text-foreground/75">
-            Estamos esperando você para um cafezinho e um pão quentinho.
-          </p>
+          <p className="mt-4 text-foreground/75">Estamos esperando você para um cafezinho e um pão quentinho.</p>
 
           <ul className="mt-8 space-y-5">
             <li className="flex gap-4">
@@ -245,7 +228,9 @@ function Contato() {
               </span>
               <div>
                 <p className="font-medium text-brown">Telefone</p>
-                <a href="tel:+554191562729" className="text-foreground/80 hover:text-vermelho">(41) 9156-2729</a>
+                <a href="tel:+554191562729" className="text-foreground/80 hover:text-vermelho">
+                  (41) 9156-2729
+                </a>
               </div>
             </li>
             <li className="flex gap-4">

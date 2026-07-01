@@ -1,12 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
+import { Outlet, Link, createRootRouteWithContext, useRouter, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -16,9 +9,7 @@ function NotFoundComponent() {
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">The page you're looking for doesn't exist or has been moved.</p>
         <div className="mt-6">
           <Link
             to="/"
@@ -39,12 +30,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">This page didn't load</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Something went wrong on our end. You can try refreshing or head back home.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -73,15 +60,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Vó Julia — Panificadora & Mercearia" },
-      { name: "description", content: "Panificadora e Mercearia Vó Julia: pães, bolos, doces, salgados e mercearia. Feito com carinho, como na casa da vó." },
+      {
+        name: "description",
+        content: "Panificadora e Mercearia Vó Julia: pães, bolos, doces, salgados e mercearia. Feito com carinho, como na casa da vó.",
+      },
       { name: "author", content: "Vó Julia" },
       { property: "og:title", content: "Vó Julia — Panificadora & Mercearia" },
-      { property: "og:description", content: "Panificadora e Mercearia Vó Julia: pães, bolos, doces, salgados e mercearia. Feito com carinho, como na casa da vó." },
+      {
+        property: "og:description",
+        content: "Panificadora e Mercearia Vó Julia: pães, bolos, doces, salgados e mercearia. Feito com carinho, como na casa da vó.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:title", content: "Vó Julia — Panificadora & Mercearia" },
-      { name: "twitter:description", content: "Panificadora e Mercearia Vó Julia: pães, bolos, doces, salgados e mercearia. Feito com carinho, como na casa da vó." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/790ed414-379a-4d1c-ab53-f20144eb7423/id-preview-38bcc5a7--01872cae-d1e7-45e1-843a-bf9a0ae6f956.lovable.app-1779235725412.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/790ed414-379a-4d1c-ab53-f20144eb7423/id-preview-38bcc5a7--01872cae-d1e7-45e1-843a-bf9a0ae6f956.lovable.app-1779235725412.png" },
+      {
+        name: "twitter:description",
+        content: "Panificadora e Mercearia Vó Julia: pães, bolos, doces, salgados e mercearia. Feito com carinho, como na casa da vó.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/790ed414-379a-4d1c-ab53-f20144eb7423/id-preview-38bcc5a7--01872cae-d1e7-45e1-843a-bf9a0ae6f956.lovable.app-1779235725412.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/790ed414-379a-4d1c-ab53-f20144eb7423/id-preview-38bcc5a7--01872cae-d1e7-45e1-843a-bf9a0ae6f956.lovable.app-1779235725412.png",
+      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
