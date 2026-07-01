@@ -1,18 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, Phone, Clock, MessageCircle, Menu, X, Heart } from "lucide-react";
 import { useState } from "react";
+
+// Imagens
 import logo from "@/assets/logo-vo-julia.png";
 import hero from "@/assets/hero-paes.jpg";
-import imgPaesAsset from "@/assets/produto-paes.jpg.asset.json";
-import imgBolosAsset from "@/assets/produto-bolos.jpg.asset.json";
-import imgDocesAsset from "@/assets/produto-doces.jpg.asset.json";
-import imgSalgadosAsset from "@/assets/produto-salgados.jpg.asset.json";
-import imgMerceariaAsset from "@/assets/produto-mercearia.jpg.asset.json";
-const imgPaes = imgPaesAsset.url;
-const imgBolos = imgBolosAsset.url;
-const imgDoces = imgDocesAsset.url;
-const imgSalgados = imgSalgadosAsset.url;
-const imgMercearia = imgMerceariaAsset.url;
+
+import imgPaes from "@/assets/images-paes.jpg";
+import imgBolos from "@/assets/images-bolos.jpg";
+import imgDoces from "@/assets/images-doces.jpg";
+import imgSalgados from "@/assets/salgados01.jpg";
+import imgMercearia from "@/assets/itens-mercearia.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -24,12 +22,32 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
 )}`;
 
 const produtos = [
-  { nome: "Pães Artesanais", img: imgPaes, items: ["Pão Francês", "Pão de Forma", "Baguete", "Pão Caseiro"] },
-  { nome: "Bolos", img: imgBolos, items: ["Bolo de Cenoura", "Bolo de Fubá", "Bolo de Chocolate", "Bolo Formigueiro"] },
-  { nome: "Doces", img: imgDoces, items: ["Brigadeiro", "Beijinho", "Cocada", "Quindim"] },
-  { nome: "Salgados", img: imgSalgados, items: ["Coxinha", "Pastel", "Esfiha", "Empada"] },
-  { nome: "Mercearia", img: imgMercearia, items: ["Arroz e Feijão", "Café e Açúcar", "Conservas", "Itens do dia a dia"] },
-];
+  {
+    nome: "Pães Artesanais",
+    img: imgPaes,
+    items: ["Pão Francês", "Pão de Forma", "Baguete", "Pão Caseiro"],
+  },
+  {
+    nome: "Bolos",
+    img: imgBolos,
+    items: ["Bolo de Cenoura", "Bolo de Fubá", "Bolo de Chocolate", "Bolo Formigueiro"],
+  },
+  {
+    nome: "Doces",
+    img: imgDoces,
+    items: ["Brigadeiro", "Beijinho", "Cocada", "Quindim"],
+  },
+  {
+    nome: "Salgados",
+    img: imgSalgados,
+    items: ["Coxinha", "Pastel", "Esfiha", "Empada"],
+  },
+  {
+    nome: "Mercearia",
+    img: imgMercearia,
+    items: ["Arroz e Feijão", "Café e Açúcar", "Conservas", "Itens do dia a dia"],
+  },
+]
 
 function Nav() {
   const [open, setOpen] = useState(false);
